@@ -1,4 +1,4 @@
-package com.example.pe.service;
+package com.example.pe.service.impl;
 
 import com.example.pe.dto.request.LoginRequestDto;
 import com.example.pe.dto.request.SignupRequestDto;
@@ -6,6 +6,7 @@ import com.example.pe.dto.response.AuthResponseDto;
 import com.example.pe.entity.User;
 import com.example.pe.repository.UserRepository;
 import com.example.pe.security.JwtTokenProvider;
+import com.example.pe.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
