@@ -1,0 +1,52 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pe_db
+    username: pe_user
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # ?? ??? update, ????? validate ??
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+logging:
+  level:
+    org.springframework: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+jwt:
+  secret: "ThisIsASecretKeyForJWTThatShouldBeAtLeast32CharsLong"
+  expiration: 86400000 # 1 day (ms)
+
+#cloud:
+#  aws:
+#    s3:
+#      bucket: your-s3-bucket-name
+#    region:
+#      static: ap-northeast-2
+#    stack:
+#      auto: false
+#    credentials:
+#      access-key: YOUR_AWS_ACCESS_KEY
+#      secret-key: YOUR_AWS_SECRET_KEY
+#
+#springdoc:
+#  api-docs:
+#    enabled: true
+#  swagger-ui:
+#    path: /swagger-ui.html
+#    operations-sorter: method
