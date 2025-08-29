@@ -8,5 +8,6 @@ import java.util.List;
 public interface PhotoService {
     PhotoResponseDto uploadPhoto(PhotoUploadRequestDto request, String userEmail);
     List<PhotoResponseDto> getAllPhotos();
-    PhotoResponseDto getPhotoById(Long photoId);
+    PhotoResponseDto getPhotoById(Long photoId, String userEmail);
+    List<PhotoResponseDto> getMyPhotos(String userEmail);
 }

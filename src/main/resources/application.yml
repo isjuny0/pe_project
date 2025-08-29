@@ -41,8 +41,8 @@ cloud:
     stack:
       auto: false
     credentials:
-      access-key: "access-key"
-      secret-key: "secret-key"
+      access-key: "access"
+      secret-key: "secret"
 
 #springdoc:
 #  api-docs:
