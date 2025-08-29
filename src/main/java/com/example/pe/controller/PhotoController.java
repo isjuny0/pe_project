@@ -40,8 +40,13 @@ public class PhotoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PhotoResponseDto> getPhotoById(@PathVariable Long id) {
-        return ResponseEntity.ok(photoService.getPhotoById(id));
+    public ResponseEntity<PhotoResponseDto> getPhotoById(@PathVariable Long id, @AuthenticationPrincipal UserDetails userDetails) {
+        return ResponseEntity.ok(photoService.getPhotoById(id, userDetails.getUsername()));
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<List<PhotoResponseDto>> getUserPhotos(@AuthenticationPrincipal UserDetails userDetails) {
+        return ResponseEntity.ok(photoService.getMyPhotos(userDetails.getUsername()));
     }
 
 }

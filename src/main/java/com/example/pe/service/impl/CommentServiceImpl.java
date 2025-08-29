@@ -39,8 +39,7 @@ public class CommentServiceImpl implements CommentService {
                 .build();
         commentRepository.save(comment);
 
-        return new CommentResponseDto(comment.getId(), comment.getContent(),
-                user.getNickname(), comment.getCreatedAt());
+        return new CommentResponseDto(comment);
     }
 
     @Override
@@ -51,8 +50,7 @@ public class CommentServiceImpl implements CommentService {
 
         return commentRepository.findByPhoto(photo)
                 .stream()
-                .map(c -> new CommentResponseDto(c.getId(), c.getContent(),
-                        c.getUser().getNickname(), c.getCreatedAt()))
+                .map(comment -> new CommentResponseDto(comment))
                 .collect(Collectors.toList());
     }
 

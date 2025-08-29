@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface LikeRepository extends JpaRepository<Like, Long> {
     int countByPhoto(Photo photo);
     Optional<Like> findByPhotoAndUser(Photo photo, User user);
+    boolean existsByPhotoAndUser(Photo photo, User user);
 }

@@ -50,4 +50,15 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Like> likes = new ArrayList<>();
+
+    // 대표 사진
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "representative_photo_id")
+    private Photo representativePhoto;
+
+    // 전시관 테마
+    private String galleryTheme = "default";
+
+    // 방문 수
+    private Long galleryVisitCount = 0L;
 }
